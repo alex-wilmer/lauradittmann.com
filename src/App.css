@@ -1,3 +1,50 @@
+html,
+body,
+#root,
+.App {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.name {
+  padding: 5px;
+  background-color: white;
+}
+
+.bg {
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+
+.bg.fade {
+  background-color: black;
+}
+
+.grid-cnt {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.grid-cnt.fade {
+  opacity: 1;
+}
+
+.logo {
+  position: absolute;
+  z-index: 100;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  justify-content: center;
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+
+.logo.fade {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .App {
   text-align: center;
 }
@@ -23,6 +70,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
