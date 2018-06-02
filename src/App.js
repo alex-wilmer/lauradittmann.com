@@ -4,7 +4,8 @@ import StackGrid from "react-stack-grid";
 import range from "lodash.range";
 
 const width = window.innerWidth > 700 ? 200 : 100;
-const images = 16;
+const pics = window.innerWidth > 700 ? 50 : 75;
+const images = 21;
 
 class App extends Component {
   state = { fade: false };
@@ -29,7 +30,7 @@ class App extends Component {
             columnWidth={width}
             monitorImagesLoaded
           >
-            {range(0, 40).map(i => (
+            {range(0, pics).map(i => (
               <div key={i}>
                 <img
                   style={{ width, height: width }}
