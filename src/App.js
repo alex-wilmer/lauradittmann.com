@@ -3,7 +3,7 @@ import "./App.css";
 import StackGrid from "react-stack-grid";
 import range from "lodash.range";
 
-const width = 200;
+const width = window.innerWidth > 700 ? 200 : 100;
 const images = 16;
 
 class App extends Component {
