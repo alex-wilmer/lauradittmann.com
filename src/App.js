@@ -128,7 +128,9 @@ class App extends Component {
                     }}
                   >
                     <FontAwesomeIcon
-                      className="insta-icon"
+                      className={`insta-icon ${
+                        links["tile" + (i + 1)] ? "show" : ""
+                      }`}
                       css={`
                         font-size: 40px;
                         color: white;
