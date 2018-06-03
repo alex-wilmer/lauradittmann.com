@@ -6,7 +6,7 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/fontawesome-free-brands";
 
 const width = window.innerWidth > 700 ? 200 : 100;
-const pics = window.innerWidth > 700 ? 50 : 75;
+const tiles = window.innerWidth > 700 ? 50 : 75;
 const images = 21;
 
 const links = {
@@ -19,11 +19,15 @@ const links = {
   tile5:
     "https://www.instagram.com/p/Bhm58WSFhd-/?hl=en&taken-by=lauradittmann",
   tile6:
-    "https://www.instagram.com/p/Bfw_JBxg-ic/?hl=en&taken-by=lauradittmann",
+    "https://www.instagram.com/p/Bg1OfVggvxy/?hl=en&taken-by=lauradittmann",
+  tile8:
+    "https://www.instagram.com/p/Bfbwb2hArJ3/?hl=en&taken-by=lauradittmann",
   tile9:
     "https://www.instagram.com/p/BfCnh5EgWvn/?hl=en&taken-by=lauradittmann",
   tile11:
     "https://www.instagram.com/p/BXtqyvkgLwM/?hl=en&taken-by=lauradittmann",
+  tile12:
+    "https://www.instagram.com/p/BWbSbfpA6aJ/?hl=en&taken-by=lauradittmann",
 };
 
 const blogSite = "http://www.lauradittmann.com/";
@@ -51,7 +55,7 @@ class App extends Component {
             gutterHeight={0}
             columnWidth={width}
           >
-            {range(0, pics).map(
+            {range(0, tiles).map(
               i =>
                 i !== 8 ? (
                   <div
@@ -107,12 +111,12 @@ class App extends Component {
             columnWidth={width}
             monitorImagesLoaded
           >
-            {range(0, pics).map(i => (
+            {range(0, tiles).map(i => (
               <div key={i} style={{ fontSize: 0, position: "relative" }}>
                 <a
-                  {...(links["tile" + (i + 1)]
+                  {...(links["tile" + ((i % images) + 1)]
                     ? {
-                        href: links["tile" + (i + 1)],
+                        href: links["tile" + ((i % images) + 1)],
                         target: "_blank",
                       }
                     : {})}
@@ -129,7 +133,7 @@ class App extends Component {
                   >
                     <FontAwesomeIcon
                       className={`insta-icon ${
-                        links["tile" + (i + 1)] ? "show" : ""
+                        links["tile" + ((i % images) + 1)] ? "show" : ""
                       }`}
                       css={`
                         font-size: 40px;
