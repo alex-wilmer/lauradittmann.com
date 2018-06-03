@@ -7,6 +7,8 @@ const width = window.innerWidth > 700 ? 200 : 100;
 const pics = window.innerWidth > 700 ? 50 : 75;
 const images = 21;
 
+const blogSite = "http://www.lauradittmann.com/";
+
 class App extends Component {
   state = { fade: false };
   componentDidMount() {
@@ -24,32 +26,57 @@ class App extends Component {
             zIndex: 100,
           }}
         >
-          <StackGrid gutterWidth={0} gutterHeight={0} columnWidth={width}>
+          <StackGrid
+            className="logo-grid"
+            gutterWidth={0}
+            gutterHeight={0}
+            columnWidth={width}
+          >
             {range(0, pics).map(
               i =>
-                i !== 10 ? (
-                  <div key={i} style={{ width, height: width, fontSize: 0 }} />
-                ) : (
+                i !== 8 ? (
                   <div
                     key={i}
                     style={{
-                      backgroundColor: "white",
                       width,
                       height: width,
-                      overflow: "hidden",
                       fontSize: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
                     }}
-                  >
-                    <img
+                  />
+                ) : (
+                  <React.Fragment>
+                    <div
+                      className="clickable-logo"
+                      onClick={() => (window.location.href = blogSite)}
+                    >
+                      ENTER
+                    </div>
+                    <div
+                      className="logo-tile"
+                      key={i}
                       style={{
-                        width: 100,
+                        backgroundColor: "white",
+                        width,
+                        height: width,
+                        overflow: "hidden",
+                        fontSize: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
-                      src={process.env.PUBLIC_URL + "logo.png"}
-                    />
-                  </div>
+                    >
+                      <img
+                        className={`logo-img ${this.state.fade ? "fade" : ""}`}
+                        style={{
+                          width: 100,
+                        }}
+                        src={process.env.PUBLIC_URL + "logo.png"}
+                      />
+                      <div className={`enter ${this.state.fade ? "fade" : ""}`}>
+                        enter
+                      </div>
+                    </div>
+                  </React.Fragment>
                 ),
             )}
           </StackGrid>
@@ -64,11 +91,13 @@ class App extends Component {
             {range(0, pics).map(i => (
               <div key={i} style={{ fontSize: 0, position: "relative" }}>
                 <div
+                  className="pic-tile"
                   style={{
                     width,
                     height: width,
                     position: "absolute",
-                    backgroundColor: "rgba(0, 0, 0, 0.3)",
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    transition: "backgroundColor 0.2s ease",
                   }}
                 />
                 <img
