@@ -15,6 +15,10 @@ body,
   background-color: rgba(0, 0, 0, 0) !important;
 }
 
+.pic-tile:hover .insta-icon {
+  opacity: 1;
+}
+
 .enter {
   color: black;
   position: absolute;
@@ -52,6 +56,18 @@ body,
   opacity: 0;
   cursor: pointer;
   pointer-events: all !important;
+}
+
+.insta-icon {
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  right: 0;
+  background: black;
+  padding: 4px;
+  opacity: 0;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 .clickable-logo:hover {

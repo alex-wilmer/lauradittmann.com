@@ -2,10 +2,29 @@ import React, { Component } from "react";
 import "./App.css";
 import StackGrid from "react-stack-grid";
 import range from "lodash.range";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/fontawesome-free-brands";
 
 const width = window.innerWidth > 700 ? 200 : 100;
 const pics = window.innerWidth > 700 ? 50 : 75;
 const images = 21;
+
+const links = {
+  tile1:
+    "https://www.instagram.com/p/BgNlR2AlSAp/?hl=en&taken-by=lauradittmann",
+  tile2:
+    "https://www.instagram.com/p/BjgcrtxlUVc/?hl=en&taken-by=lauradittmann",
+  tile3:
+    "https://www.instagram.com/p/BjGMEjGlpUe/?hl=en&taken-by=lauradittmann",
+  tile5:
+    "https://www.instagram.com/p/Bhm58WSFhd-/?hl=en&taken-by=lauradittmann",
+  tile6:
+    "https://www.instagram.com/p/Bfw_JBxg-ic/?hl=en&taken-by=lauradittmann",
+  tile9:
+    "https://www.instagram.com/p/BfCnh5EgWvn/?hl=en&taken-by=lauradittmann",
+  tile11:
+    "https://www.instagram.com/p/BXtqyvkgLwM/?hl=en&taken-by=lauradittmann",
+};
 
 const blogSite = "http://www.lauradittmann.com/";
 
@@ -90,25 +109,44 @@ class App extends Component {
           >
             {range(0, pics).map(i => (
               <div key={i} style={{ fontSize: 0, position: "relative" }}>
-                <div
-                  className="pic-tile"
-                  style={{
-                    width,
-                    height: width,
-                    position: "absolute",
-                    backgroundColor: "rgba(0, 0, 0, 0.5)",
-                    transition: "backgroundColor 0.2s ease",
-                  }}
-                />
-                <img
-                  style={{ width, height: width }}
-                  src={
-                    process.env.PUBLIC_URL +
-                    "tile" +
-                    ((i % images) + 1) +
-                    ".png"
-                  }
-                />
+                <a
+                  {...(links["tile" + (i + 1)]
+                    ? {
+                        href: links["tile" + (i + 1)],
+                        target: "_blank",
+                      }
+                    : {})}
+                >
+                  <div
+                    className="pic-tile"
+                    style={{
+                      width,
+                      height: width,
+                      position: "absolute",
+                      backgroundColor: "rgba(0, 0, 0, 0.5)",
+                      transition: "backgroundColor 0.2s ease",
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      className="insta-icon"
+                      css={`
+                        font-size: 40px;
+                        color: white;
+                        cursor: pointer;
+                      `}
+                      icon={faInstagram}
+                    />
+                  </div>
+                  <img
+                    style={{ width, height: width }}
+                    src={
+                      process.env.PUBLIC_URL +
+                      "tile" +
+                      ((i % images) + 1) +
+                      ".png"
+                    }
+                  />
+                </a>
               </div>
             ))}
           </StackGrid>
