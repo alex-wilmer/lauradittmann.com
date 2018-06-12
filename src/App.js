@@ -30,7 +30,7 @@ const links = {
     "https://www.instagram.com/p/BWbSbfpA6aJ/?hl=en&taken-by=lauradittmann",
 };
 
-const blogSite = "http://www.lauradittmann.com/";
+const blogSite = "https://blog.lauradittmann.com";
 
 class App extends Component {
   state = { fade: false };
